@@ -1,0 +1,53 @@
+/* style.css faylida */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#current-lesson-notification {
+    background-color: #e3f2fd; /* Ochiq ko'k fon */
+    border: 1px solid #90caf9; /* Ko'k hoshiya */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+#current-lesson-notification.active {
+    background-color: #fff3e0; /* Ochiq sariq fon (faol dars uchun) */
+    border: 1px solid #ffcc80; /* Sariq hoshiya */
+    font-weight: bold;
+    color: #e65100; /* To'q sariq matn */
+}
+
+#schedule-table {
+    width: 100%;
+    border-collapse: collapse; /* Chiziqlarni birlashtirish */
+    margin-top: 15px;
+}
+
+#schedule-table th, #schedule-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#schedule-table th {
+    background-color: #f2f2f2; /* Sarlavha foni */
+}
+
+#schedule-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Har ikkinchi qator foni */
+}
+
+/* Hozirgi darsni jadvalda ajratib ko'rsatish */
+#schedule-table tbody tr.current {
+    background-color: #fff3e0; /* Faol dars qatori */
+    font-weight: bold;
+}
