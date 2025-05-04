@@ -24,8 +24,6 @@ const schedule = [
     { day: 5, startTime: '10:30', endTime: '11:50', group: '24-214', room: '130' },
     { day: 5, startTime: '14:20', endTime: '15:40', group: '24-210', room: '221' },
     { day: 5, startTime: '15:50', endTime: '17:10', group: '24-210', room: '221' },
-    // Yakshanba (Day 0 - TEST UCHUN)
-    { day: 0, startTime: '17:10', endTime: '18:40', group: 'YAKSHANBA TEST', room: 'TEST-000' }
 ];
 
 
