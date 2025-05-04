@@ -1,43 +1,59 @@
 const express = require('express');
-const path = require('path'); // path modulini chaqiramiz
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Server ishlaydigan port
+const PORT = process.env.PORT || 3000;
 
-// Jadval ma'lumotlari (serverda saqlanadi)
-// Kelajakda buni alohida fayl yoki ma'lumotlar bazasidan olish mumkin
 const schedule = [
-    { day: 1, startTime: '08:30', endTime: '10:00', group: 'Kompyuter grafikasi - 101', room: 'A-205' },
-    { day: 1, startTime: '10:15', endTime: '11:45', group: 'Ma\'lumotlar bazasi - 202', room: 'B-110' },
-    { day: 2, startTime: '14:00', endTime: '15:30', group: 'Web dasturlash - 305', room: 'C-301' },
-    { day: 3, startTime: '09:00', endTime: '10:30', group: 'Kompyuter grafikasi - 101', room: 'A-205' },
-    // Hozirgi kunni test qilish uchun ( kerak bo'lsa vaqtini o'zgartiring)
-    { day: 6, startTime: '14:00', endTime: '14:30', group: 'Algoritmlar - 401', room: 'D-101' }
-    // ... boshqa darslarni qo'shing
+    // Dushanba (Day 1)
+    { day: 1, startTime: '09:00', endTime: '10:20', group: '24-215', room: '128' },
+    { day: 1, startTime: '10:30', endTime: '11:50', group: '24-205', room: '219' },
+    { day: 1, startTime: '12:00', endTime: '13:20', group: '24-214', room: '130' },
+    { day: 1, startTime: '15:50', endTime: '17:10', group: '24-210', room: '221' },
+    { day: 1, startTime: '17:20', endTime: '18:40', group: '24-212', room: '226' },
+
+    // Seshanba (Day 2)
+    { day: 2, startTime: '09:00', endTime: '10:20', group: '24-215', room: '128' },
+    { day: 2, startTime: '10:30', endTime: '11:50', group: '24-205', room: '219' },
+    { day: 2, startTime: '15:50', endTime: '17:10', group: '24-212', room: '226' },
+
+    // Chorshanba (Day 3)
+    { day: 3, startTime: '09:00', endTime: '10:20', group: '24-214', room: '130' },
+    { day: 3, startTime: '12:00', endTime: '13:20', group: '24-205', room: '219' },
+    { day: 3, startTime: '14:20', endTime: '15:40', group: '24-212', room: '226' },
+
+    // Payshanba (Day 4)
+    { day: 4, startTime: '09:00', endTime: '10:20', group: '24-214', room: '130' },
+    { day: 4, startTime: '10:30', endTime: '11:50', group: '24-215', room: '128' },
+    { day: 4, startTime: '12:00', endTime: '13:20', group: '24-205', room: '219' },
+    { day: 4, startTime: '14:20', endTime: '15:40', group: '24-212', room: '226' },
+    { day: 4, startTime: '15:50', endTime: '17:10', group: '24-210', room: '221' },
+
+    // Juma (Day 5)
+    { day: 5, startTime: '09:00', endTime: '10:20', group: '24-215', room: '128' },
+    { day: 5, startTime: '10:30', endTime: '11:50', group: '24-214', room: '130' },
+    { day: 5, startTime: '14:20', endTime: '15:40', group: '24-210', room: '221' },
+    { day: 5, startTime: '15:50', endTime: '17:10', group: '24-210', room: '221' },
+
 ];
 
-// API endpoint: Jadval ma'lumotlarini JSON formatida qaytaradi
+
 app.get('/api/schedule', (req, res) => {
     res.json(schedule);
 });
 
-// Asosiy sahifa (index.html) uchun yo'l (route)
 app.get('/', (req, res) => {
-    // __dirname joriy papka yo'lini bildiradi
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// CSS fayli (style.css) uchun yo'l
 app.get('/style.css', (req, res) => {
     res.sendFile(path.join(__dirname, 'style.css'));
 });
 
-// JavaScript fayli (script.js) uchun yo'l
 app.get('/script.js', (req, res) => {
     res.sendFile(path.join(__dirname, 'script.js'));
 });
 
-// Serverni ishga tushirish
 app.listen(PORT, () => {
     console.log(`Server http://localhost:${PORT} manzilida ishga tushdi`);
 });
